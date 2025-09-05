@@ -11,6 +11,20 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+
+  {
+    rules: {
+      // Example: disallow console.logs in production
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+
+      // Example: prefer const over let if not reassigned
+      "prefer-const": "error",
+
+      // Example: disallow anonymous default exports
+      "import/no-anonymous-default-export": "error",
+      "react-hooks/exhaustive-deps": 'off',
+    },
+  },
 ];
 
 export default eslintConfig;
