@@ -277,7 +277,12 @@ const AddProduct = () => {
 
 					{/* sticky footer with shadow */}
 					<div className='sticky bottom-0 backdrop-blur-sm bg-white/80 border-t shadow-sm p-4'>
-						<Button type='submit' disabled={isLoading} className='w-full'>
+						<Button
+							type='submit'
+							form='product-form'
+							disabled={isLoading}
+							className='w-full'
+						>
 							Submit {isLoading && <Loader className='animate-spin' />}
 						</Button>
 					</div>
