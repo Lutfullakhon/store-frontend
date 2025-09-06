@@ -264,7 +264,7 @@ const AddProduct = () => {
 									<UploadDropzone
 										endpoint={'imageUploader'}
 										onClientUploadComplete={res => {
-											form.setValue('image', res[0].url)
+											form.setValue('image', res[0].ufsUrl)
 											form.setValue('imageKey', res[0].key)
 										}}
 										config={{ appendOnPaste: true, mode: 'auto' }}
