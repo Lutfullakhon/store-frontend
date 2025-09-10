@@ -7,6 +7,7 @@ import { Toaster } from '@/components/ui/sonner'
 import React from 'react'
 import SessionProvider from '@/components/providers/session.provider'
 import { CheckCircle, XCircle } from 'lucide-react'
+import NextTopLoader from 'nextjs-toploader'
 
 const montserrat = Montserrat({
 	weight: ['400', '500', '600', '700', '800', '900'],
@@ -37,6 +38,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 							info: <span>ℹ️</span>, // you can even use emoji
 						}}
 					/>
+					<NextTopLoader showSpinner={false} />
 				</body>
 			</html>
 		</SessionProvider>
