@@ -1,10 +1,9 @@
 import './globals.css'
-
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import Navbar from '@/components/shared/navbar'
 import { Toaster } from '@/components/ui/sonner'
-import React from 'react'
+import React, { Suspense } from 'react'
 import SessionProvider from '@/components/providers/session.provider'
 import { CheckCircle, XCircle } from 'lucide-react'
 import NextTopLoader from 'nextjs-toploader'
@@ -26,18 +25,24 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 			<html lang='en'>
 				<body className={`${montserrat.className} antialiased`}>
 					<Navbar />
+
+					{/* ✅ Suspense boundary for all routes */}
 					<main className='container max-w-6xl mx-auto mt-24 px-4'>
-						{children}
+						<Suspense fallback={<div className='text-center'>Loading...</div>}>
+							{children}
+						</Suspense>
 					</main>
+
 					<Toaster
 						richColors
 						position='top-right'
 						icons={{
 							success: <CheckCircle />,
 							error: <XCircle />,
-							info: <span>ℹ️</span>, // you can even use emoji
+							info: <span>ℹ️</span>,
 						}}
 					/>
+
 					<NextTopLoader showSpinner={false} />
 				</body>
 			</html>
